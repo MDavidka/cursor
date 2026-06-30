@@ -24,14 +24,14 @@ const testimonials = [
     title: 'Lead Developer, CodeCrafters',
     avatar: 'https://api.dicebear.com/7.x/adventurer/svg?seed=John',
     quote:
-      'The best tool we've integrated this year. The support is fantastic, and the continuous updates keep us ahead of the curve.',
+       'The best tool we\'ve integrated this year. The support is fantastic, and the continuous updates keep us ahead of the curve.',
   },
   {
     name: 'Emily White',
     title: 'Marketing Director, BrandUp',
     avatar: 'https://api.dicebear.com/7.x/adventurer/svg?seed=Emily',
     quote:
-      'Our team loves Acme! It's streamlined our marketing efforts and provided insights we never had before. A game-changer for sure.',
+       'Our team loves Acme! It\'s streamlined our marketing efforts and provided insights we never had before. A game-changer for sure.',
   },
 ];
 
@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     question: 'How do I get started?',
-    answer: 'Simply sign up for a free account, and you'll be guided through our onboarding process. It's quick and easy!',
+    answer: 'Simply sign up for a free account, and you\'ll be guided through our onboarding process. It\'s quick and easy!',
   },
   {
     question: 'Is there a free trial?',
