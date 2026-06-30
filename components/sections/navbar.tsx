@@ -5,9 +5,19 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Server } from "lucide-react";
-import { siteConfig, navLinks } from "@/lib/data";
 
-export function SectionNavbar() {
+interface SectionNavbarProps {
+  brand: string;
+  links: { label: string; href: string; }[];
+  auth: {
+    signInLabel: string;
+    signInHref: string;
+    signUpLabel: string;
+    signUpHref: string;
+  };
+}
+
+export function SectionNavbar({ brand, links, auth }: SectionNavbarProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -16,10 +26,10 @@ export function SectionNavbar() {
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight">
             <Server className="h-5 w-5 text-primary" />
-            {siteConfig.name}
+            {brand}
           </Link>
           <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
+            {links.map((link) => (
               <Button key={link.href} variant="ghost" size="sm" asChild>
                 <Link href={link.href}>{link.label}</Link>
               </Button>
@@ -29,10 +39,10 @@ export function SectionNavbar() {
 
         <div className="hidden md:flex items-center gap-2">
           <Button variant="ghost" size="sm" asChild>
-            <Link href="/login">Sign in</Link>
+            <Link href={auth.signInHref}>{auth.signInLabel}</Link>
           </Button>
           <Button size="sm" asChild>
-            <Link href="/signup">Get started</Link>
+            <Link href={auth.signUpHref}>{auth.signUpLabel}</Link>
           </Button>
         </div>
 
@@ -44,7 +54,7 @@ export function SectionNavbar() {
           </SheetTrigger>
           <SheetContent side="right" className="w-64 pt-12">
             <nav className="flex flex-col gap-1">
-              {navLinks.map((link) => (
+              {links.map((link) => (
                 <Button key={link.href} variant="ghost" className="justify-start" asChild>
                   <Link href={link.href} onClick={() => setOpen(false)}>
                     {link.label}
@@ -53,10 +63,10 @@ export function SectionNavbar() {
               ))}
               <div className="mt-4 flex flex-col gap-2 border-t pt-4">
                 <Button variant="outline" className="w-full" asChild>
-                  <Link href="/login" onClick={() => setOpen(false)}>Sign in</Link>
+                  <Link href={auth.signInHref} onClick={() => setOpen(false)}>{auth.signInLabel}</Link>
                 </Button>
                 <Button className="w-full" asChild>
-                  <Link href="/signup" onClick={() => setOpen(false)}>Get started</Link>
+                  <Link href={auth.signUpHref} onClick={() => setOpen(false)}>{auth.signUpLabel}</Link>
                 </Button>
               </div>
             </nav>
