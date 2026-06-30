@@ -51,11 +51,7 @@ export default function RootLayout({
           }}
         />
         <main className="flex-1">{children}</main>
-        <SectionFooter
-          brand={siteConfig.name}
-          columns={footerColumns}
-          copyright={`© ${new Date().getFullYear()} ${siteConfig.name}. All rights reserved.`}
-        />
+        <SectionFooter />
         <Toaster />
       </body>
     </html>
