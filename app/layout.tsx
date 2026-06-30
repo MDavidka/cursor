@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { SectionNavbar } from "@/components/sections/navbar";
 import { SectionFooter } from "@/components/sections/footer";
-import { siteConfig, navLinks, footerColumns } from "@/lib/data";
+import { siteConfig, navLinks } from "@/lib/data";
 import "./globals.css";
 
 const inter = Inter({
