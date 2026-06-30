@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { SectionNavbar } from "@/components/sections/navbar";
 import { SectionFooter } from "@/components/sections/footer";
+import { siteConfig, navLinks, footerColumns } from "@/lib/data";
 import "./globals.css";
 
 const inter = Inter({
@@ -39,9 +40,22 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased min-h-screen flex flex-col`}>
-        <SectionNavbar />
+        <SectionNavbar
+          brand={siteConfig.name}
+          links={navLinks}
+          auth={{
+            signInLabel: "Sign in",
+            signInHref: "/login",
+            signUpLabel: "Get started",
+            signUpHref: "/signup",
+          }}
+        />
         <main className="flex-1">{children}</main>
-        <SectionFooter />
+        <SectionFooter
+          brand={siteConfig.name}
+          columns={footerColumns}
+          copyright={`© ${new Date().getFullYear()} ${siteConfig.name}. All rights reserved.`}
+        />
         <Toaster />
       </body>
     </html>
